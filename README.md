@@ -52,8 +52,10 @@ O bot foi adaptado para demonstrar boas praticas em Elixir:
 - `!curiosidade`: `Nominatim + Wikipedia REST/API`
 - `!gato`: `TheCatAPI` (imagem aleatoria)
 - `!dog`: `Dog CEO API` (imagem aleatoria)
+- `!piada`: `Official Joke API` (joke in english)
 - `!lembrar`: persistencia local JSON
 - `!lembretes`: leitura da persistencia local JSON
+- `!ajuda`: lista os comandos disponiveis
 
 ## Comandos Disponiveis
 
@@ -82,12 +84,18 @@ O bot foi adaptado para demonstrar boas praticas em Elixir:
 - `!dog`
   - retorna link de imagem aleatoria de cachorro.
 
+- `!piada`
+  - retorna uma piada aleatoria em ingles.
+
 - `!lembrar <texto>`
   - exemplo: `!lembrar estudar recursao`
   - salva lembrete no JSON local.
 
 - `!lembretes`
   - lista lembretes salvos.
+
+- `!ajuda`
+  - mostra a lista de comandos disponiveis.
 
 ## Como Executar
 

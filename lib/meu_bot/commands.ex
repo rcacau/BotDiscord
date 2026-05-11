@@ -125,6 +125,42 @@ defmodule MeuBot.Commands do
     end
   end
 
+  def ajuda do
+    [
+      "Comandos disponiveis:",
+      "`!ping` - verifica se o bot esta online",
+      "`!clima <cidade>` - consulta clima",
+      "`!cep <cep>` - consulta endereco por CEP",
+      "`!cotacao <moeda1> <moeda2>` - consulta cotacao",
+      "`!curiosidade <cidade>` - curiosidade da Wikipedia",
+      "`!gato` - imagem aleatoria de gato",
+      "`!dog` - imagem aleatoria de cachorro",
+      "`!piada` - retorna uma piada aleatoria",
+      "`!lembrar <texto>` - salva lembrete",
+      "`!lembretes` - lista lembretes",
+      "`!ajuda` - mostra esta lista"
+    ]
+    |> Enum.join("\n")
+  end
+
+  def piada do
+    url = "https://official-joke-api.appspot.com/random_joke"
+
+    case HTTPoison.get(url) do
+      {:ok, %{status_code: 200, body: body}} ->
+        with {:ok, data} <- Jason.decode(body),
+             setup when is_binary(setup) <- data["setup"],
+             punchline when is_binary(punchline) <- data["punchline"] do
+          "Random joke:\n#{setup}\n#{punchline}"
+        else
+          _ -> "I couldn't format a joke right now."
+        end
+
+      _ ->
+        "Joke API is unavailable right now."
+    end
+  end
+
   defp geocode_city(city) do
     encoded = URI.encode(city)
     url = "https://geocoding-api.open-meteo.com/v1/search?name=#{encoded}&count=1&language=pt&format=json"
@@ -232,4 +268,5 @@ defmodule MeuBot.Commands do
       _ -> {:error, :awesomeapi_failed}
     end
   end
+
 end
