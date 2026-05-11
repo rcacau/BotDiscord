@@ -87,6 +87,21 @@ defmodule MeuBot.Commands do
     end
   end
 
+  def dog do
+    case HTTPoison.get("https://dog.ceo/api/breeds/image/random") do
+      {:ok, %{status_code: 200, body: body}} ->
+        with {:ok, data} <- Jason.decode(body),
+             url when is_binary(url) <- data["message"] do
+          "Aqui vai um cachorro aleatorio pra voce: #{url}"
+        else
+          _ -> "Nao consegui buscar um cachorro agora."
+        end
+
+      _ ->
+        "API de cachorros indisponivel no momento."
+    end
+  end
+
   def lembrar(text) do
     case Store.add_reminder(text) do
       :ok -> "Lembrete salvo: #{text}"

@@ -1,6 +1,6 @@
 import Config
 
 config :nostrum,
-  token: "SEU_TOKEN_AQUI",
+  token: "",
   gateway_intents: :all,
   ffmpeg: false

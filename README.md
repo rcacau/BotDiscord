@@ -51,6 +51,7 @@ O bot foi adaptado para demonstrar boas praticas em Elixir:
 - `!cotacao`: `Frankfurter` (fallback para `AwesomeAPI`)
 - `!curiosidade`: `Nominatim + Wikipedia REST/API`
 - `!gato`: `TheCatAPI` (imagem aleatoria)
+- `!dog`: `Dog CEO API` (imagem aleatoria)
 - `!lembrar`: persistencia local JSON
 - `!lembretes`: leitura da persistencia local JSON
 
@@ -77,6 +78,9 @@ O bot foi adaptado para demonstrar boas praticas em Elixir:
 
 - `!gato`
   - retorna link de imagem aleatoria de gato.
+
+- `!dog`
+  - retorna link de imagem aleatoria de cachorro.
 
 - `!lembrar <texto>`
   - exemplo: `!lembrar estudar recursao`

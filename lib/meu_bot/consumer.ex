@@ -30,6 +30,7 @@ defmodule MeuBot.Consumer do
   defp dispatch_command(["!curiosidade"]), do: "Uso: `!curiosidade <cidade>`"
   defp dispatch_command(["!curiosidade" | city_parts]), do: Commands.curiosidade(Enum.join(city_parts, " "))
   defp dispatch_command(["!gato"]), do: Commands.gato()
+  defp dispatch_command(["!dog"]), do: Commands.dog()
   defp dispatch_command(["!lembrar"]), do: "Uso: `!lembrar <texto>`"
   defp dispatch_command(["!lembrar" | parts]), do: Commands.lembrar(Enum.join(parts, " "))
   defp dispatch_command(["!lembretes"]), do: Commands.lembretes()
